@@ -1,0 +1,21 @@
+package indi.conf;
+
+import java.util.Objects;
+
+import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
+
+@EnableRedisHttpSession 
+public class SpringSessionConf {
+
+    /**
+     * 必须在 <b>这里</b> 注册这个bean？
+     */
+    @Bean
+    public LettuceConnectionFactory connectionFactory(RedisProperties properties) {
+        Objects.requireNonNull(properties, "redis 配置项不能为空");
+        return new LettuceConnectionFactory(properties.getHost(), properties.getPort()); 
+    }
+}

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>util-spring</artifactId>
+	<packaging>pom</packaging>
+
+	<name>util-spring</name>
+	<url>http://maven.apache.org</url>
+
+	<parent>
+		<groupId>dragonboom</groupId>
+		<artifactId>util</artifactId>
+		<version>0.0.1</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<!-- 子项目 -->
+	<modules>
+		<module>util-spring-auth-security</module>
+		<module>util-spring-static</module>
+		<module>util-spring-web</module>
+		<module>util-spring-jpa</module>
+		<module>util-spring-test</module>
+		<module>util-spring-core</module>
+		<module>util-spring-session</module>
+	</modules>
+	<dependencies>
+		<dependency>
+			<groupId>dragonboom</groupId>
+			<artifactId>util-core</artifactId>
+		</dependency>
+		<!-- 全局禁用logging starter -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- 导入spring boot 2.0.5 的依赖 -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>2.0.5.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- 导入 util 的依赖 -->
+			<dependency>
+				<groupId>dragonboom</groupId>
+				<artifactId>util</artifactId>
+				<version>0.0.1</version>
+				<type>pom</type>
+			</dependency>
+			<!-- 指定子项目版本 -->
+			<dependency>
+				<groupId>dragonboom</groupId>
+				<artifactId>util-spring-auth-security</artifactId>
+				<version>0.0.1</version>
+			</dependency>
+			<dependency>
+				<groupId>dragonboom</groupId>
+				<artifactId>util-spring-static</artifactId>
+				<version>0.0.1</version>
+			</dependency>
+			<dependency>
+				<groupId>dragonboom</groupId>
+				<artifactId>util-spring-web</artifactId>
+				<version>0.0.1</version>
+			</dependency>
+			<dependency>
+				<groupId>dragonboom</groupId>
+				<artifactId>util-spring-test</artifactId>
+				<version>0.0.1</version>
+			</dependency>
+			<dependency>
+				<groupId>dragonboom</groupId>
+				<artifactId>util-spring-core</artifactId>
+				<version>0.0.1</version>
+			</dependency>
+			<dependency>
+				<groupId>dragonboom</groupId>
+				<artifactId>util-spring-jpa</artifactId>
+				<version>0.0.1</version>
+			</dependency>
+			<dependency>
+				<groupId>dragonboom</groupId>
+				<artifactId>util-spring-session</artifactId>
+				<version>0.0.1</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
+	<build>
+		<plugins>
+			<!-- 指定Java版本 -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

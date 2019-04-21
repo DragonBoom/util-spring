@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="MainApp">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>MW</title>
+
+	<link rel="shortcut icon" href="/img/favicon.png">
+	<link type="text/css" rel="stylesheet" href="/css/materialize.css" media="screen,projection" />
+	<link rel="stylesheet" href="/css/mw.css">
+
+	<script src="/js/angular.js"></script>
+	<script src="/js/angular-route.js"></script>
+	<script src="/js/angular-animate.js"></script>
+	<script src="/js/velocity.js"></script>
+	<script src="/js/materialize.js"></script>
+	<script src="/error/error.angular.js"></script>
+</head>
+
+<body class="teal lighten-2">
+	<header ng-include="'/error/module/page-header.html'"></header>
+	<div class="main">
+		<div class="row container">
+			<div style="height: 25px;"></div>
+			<div class="col s4">
+				<h2>页面不存在</h2>
+				<br>
+				咋回事吖,小老弟
+			</div>
+			<div class="col s8">
+				<img src="/img/error/error.jpg" width="100%">
+			</div>
+		</div>
+	</div>
+	<!-- 引用，注意单引号 -->
+	<footer ng-include="'/error/module/page-footer.html'" class="page-footer"></footer>
+</body>
+
+</html>

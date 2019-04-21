@@ -1,0 +1,35 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "indi.properties.SecurityProperties",
+      "name": "security",
+      "type": "indi.properties.SecurityProperties"
+    },
+    {
+      "sourceType": "indi.properties.SecurityProperties",
+      "name": "security.sso",
+      "sourceMethod": "public indi.properties.SecurityProperties.SSO getSso() ",
+      "type": "indi.properties.SecurityProperties$SSO"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "indi.properties.SecurityProperties$SSO",
+      "name": "security.sso.biz",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "indi.properties.SecurityProperties$SSO",
+      "name": "security.sso.server-location",
+      "description": "配置 SSO 认证服务器的地址",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "indi.properties.SecurityProperties",
+      "name": "security.success-forward-url",
+      "description": "配置登陆成功后转发的地址",
+      "type": "java.lang.String"
+    }
+  ]
+}
