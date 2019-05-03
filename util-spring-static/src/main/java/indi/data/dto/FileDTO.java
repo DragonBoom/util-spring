@@ -11,7 +11,7 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString(callSuper = true)// 使得转化为字符串时包含继承来的属性
+@ToString(callSuper = true, exclude = {"content"})// 使得转化为字符串时包含继承来的属性
 public class FileDTO extends DirectoryEntryDTO {
     private Long size;// 文件大小
     private String storeType;// 存储方式（具体类型见 indi.constant.StoreType）

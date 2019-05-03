@@ -33,6 +33,6 @@
 		<dependency>
 			<groupId>dragonboom</groupId>
 			<artifactId>util-spring-core</artifactId>
-		</dependency>
+		</dependency>		
 	</dependencies>
 </project>
