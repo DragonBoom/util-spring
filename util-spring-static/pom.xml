@@ -35,4 +35,5 @@
 			<artifactId>util-spring-core</artifactId>
 		</dependency>		
 	</dependencies>
+	<description>提供对静态资源的通用的支持</description>
 </project>

@@ -4,8 +4,6 @@ package indi.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 负责管理静态资源的Controller
  * 
@@ -13,7 +11,6 @@ import lombok.extern.slf4j.Slf4j;
  *
  */
 @Controller
-@Slf4j
 public class StaticController extends BasicController {
 	private static final String PIC_API_PATH = "/pic";
 	private static final String ERROR_API_PATH = "/404";

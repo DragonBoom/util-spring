@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import indi.data.RestResult;
 import indi.util.ExceptionUtils;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 当拦截控制器返回的Result为error时，同步修改响应的状态值(status)
@@ -20,10 +21,11 @@ import indi.util.ExceptionUtils;
  */
 @Aspect
 @Component
+@Slf4j
 public class RestResultAspect {
 
     public RestResultAspect() {
-        System.out.println("【启用切面】ErrorResultAspect");
+        log.info("【启用切面】ErrorResultAspect");
     }
 
     /**
