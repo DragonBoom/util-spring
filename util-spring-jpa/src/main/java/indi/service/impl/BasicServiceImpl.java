@@ -5,12 +5,19 @@ import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class BasicServiceImpl {
+import indi.dao.BaseDao;
+import indi.data.Result;
+import indi.data.Results;
+import indi.service.BasicService;
+
+public abstract class BasicServiceImpl<T, ID> implements BasicService<T, ID> {
 	
-	public <T> T getOne() {
-		return null;
+	public Result<T> get(ID id) {
+	    return Results.fromOptional(getDao().findById(id), "根据ID找不到实体");
 	}
+	
+	public abstract BaseDao<T, ID> getDao();
 
 	@Autowired
-	protected EntityManager entityManager;
+	protected EntityManager em;
 }

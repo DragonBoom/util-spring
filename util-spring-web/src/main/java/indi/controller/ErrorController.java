@@ -7,7 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import indi.data.RestResult;
+import indi.data.Result;
+import indi.data.Results;
 
 @Controller
 public class ErrorController extends BasicController {
@@ -20,10 +21,10 @@ public class ErrorController extends BasicController {
      */
     @GetMapping(path = "/error", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public RestResult<?> handleJson() {
+    public Result<?> handleJson() {
         Integer status = (Integer) request.getAttribute("javax.servlet.error.status_code");
         String msg = (String) request.getAttribute("javax.servlet.error.message");
-        return RestResult.asError(status, msg);
+        return Results.error(status, msg);
     }
 
     /**

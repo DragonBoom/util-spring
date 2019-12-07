@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import indi.data.RestResult;
+import indi.data.Result;
 import indi.util.ExceptionUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,9 +22,9 @@ import lombok.extern.slf4j.Slf4j;
 @Aspect
 @Component
 @Slf4j
-public class RestResultAspect {
+public class ResultAspect {
 
-    public RestResultAspect() {
+    public ResultAspect() {
         log.info("【启用切面】ErrorResultAspect");
     }
 
@@ -35,11 +35,11 @@ public class RestResultAspect {
     private void controllerOperation() {
     }
 
-    @Around("execution(* indi.controller.*.*(..))") // 不能用 execution(public indi.controller.*.*(..))？
+    @Around("execution(* indi.controller.*.*(..))") // 不能用 execution(public indi.controller.*.*(..))？可用execution(public * indi.controller.*.*(..))
     public Object doAround(ProceedingJoinPoint pjp) {
-        RestResult<?> result = null;
+        Result<?> result = null;
         try {
-            result = (RestResult<?>) pjp.proceed();
+            result = (Result<?>) pjp.proceed();
         } catch (Throwable e) {
             e = ExceptionUtils.findFirstCause(e);
             e.printStackTrace();

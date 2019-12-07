@@ -36,4 +36,6 @@ public class FileDO implements Serializable {
     private String description;// 描述
     @Column
     private String category;// 标签，用于分类
+    @Column
+    private String contentType;
 }

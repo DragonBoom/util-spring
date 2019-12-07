@@ -18,7 +18,7 @@ public class JpaUtils {
      * @throws IntrospectionException 
      */
     public static final String generateSQL(Class<?> beanClass) {
-        List<Three> threes = new LinkedList<>();
+        List<Three<String, Class<?>, String>> threes = new LinkedList<>();
         
         Table table = beanClass.getAnnotation(Table.class);
         if (table == null) {
@@ -34,7 +34,7 @@ public class JpaUtils {
                 String comment = toSql.comment();
                 String name = field.getName();
                 Class<?> type = field.getType();
-                Three three = Three.of(name, type, comment);
+                Three<String, Class<?>, String> three = Three.of(name, type, comment);
                 threes.add(three);
             }
             continue;
@@ -49,7 +49,7 @@ public class JpaUtils {
      * @param tableName
      * @return
      */
-    private static String buildSql(List<Three> threes, String tableName) {
+    private static String buildSql(List<Three<String, Class<?>, String>> threes, String tableName) {
         if (threes == null || threes.size() == 0) {
             return "";
         }

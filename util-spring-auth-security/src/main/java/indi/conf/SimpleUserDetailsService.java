@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 public class SimpleUserDetailsService implements UserDetailsService{
 
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		SimpleUserDO simpleUserEntity = simpleUserDao.createQuery().with("username", username).singleResult();
+		SimpleUserDO simpleUserEntity = simpleUserDao.createWhereQuery().where("username", username).singleResult();
 		log.debug("{} {}", username, simpleUserEntity);
 		if (simpleUserEntity == null) {
 			log.debug("user not found");

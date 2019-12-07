@@ -22,5 +22,9 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>dragonboom</groupId>
+			<artifactId>util-core</artifactId>
+		</dependency>
 	</dependencies>
 </project>
