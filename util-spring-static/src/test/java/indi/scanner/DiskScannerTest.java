@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import indi.data.dto.FileDTO;
-import indi.util.TestSeparateExtension;
+import indi.test.TestSeparateExtension;
 
 @ExtendWith(TestSeparateExtension.class)
 class DiskScannerTest {

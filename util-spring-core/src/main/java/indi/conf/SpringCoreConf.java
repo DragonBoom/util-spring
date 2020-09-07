@@ -6,8 +6,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import indi.bean.ObjectMapperUtils;
 import indi.util.ApplicationContextAwareHelper;
-import indi.util.ObjectMapperUtils;
 
 @Configuration
 @EnableAspectJAutoProxy

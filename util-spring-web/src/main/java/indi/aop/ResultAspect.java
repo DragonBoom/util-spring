@@ -10,11 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import indi.data.Result;
-import indi.util.ExceptionUtils;
+import indi.exception.ExceptionUtils;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 当拦截控制器返回的Result为error时，同步修改响应的状态值(status)
+ * 拦截控制器返回的Result，当Result.code不为空时，修改响应的状态值(status)为code
  * 
  * @author DragonBoom
  *
@@ -25,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ResultAspect {
 
     public ResultAspect() {
-        log.info("【启用切面】ErrorResultAspect");
+        log.info("【启用切面】ResultAspect");
     }
 
     /**
@@ -48,7 +48,11 @@ public class ResultAspect {
         if (result == null) {
             return null;
         } else {
-            response.setStatus(result.getCode());
+            if (result.getCode() != null) {
+                response.setStatus(result.getCode());
+            } else if (result.isError()) {
+                response.setStatus(400);// 万能的400
+            }
             return result;
         }
     }

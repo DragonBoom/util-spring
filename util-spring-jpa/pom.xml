@@ -3,14 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>util-spring-jpa</artifactId>
-	<packaging>pom</packaging>
-	
+
 	<parent>
 		<groupId>dragonboom</groupId>
 		<artifactId>util-spring</artifactId>
 		<version>0.0.1</version>
 	</parent>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

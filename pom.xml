@@ -6,17 +6,20 @@
 
 	<artifactId>util-spring</artifactId>
 	<packaging>pom</packaging>
+	<version>0.0.1</version>
+	<groupId>dragonboom</groupId>
 
 	<name>util-spring</name>
 
 	<parent>
-
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-dependencies</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.5.RELEASE</version>
 	</parent>
 
 	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<skipTests>true</skipTests>
 
@@ -32,7 +35,7 @@
 		<module>util-spring-core</module>
 		<module>util-spring-session</module>
 	</modules>
-	
+
 	<dependencies>
 		<!-- 全局禁用logging starter -->
 		<dependency>
@@ -50,7 +53,7 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- 导入 父项目 的依赖 -->
+			<!-- 继承版本控制 -->
 			<!-- util -->
 			<dependency>
 				<groupId>dragonboom</groupId>
@@ -61,12 +64,12 @@
 			</dependency>
 			<!-- spring boot -->
 			<dependency>
-		        <groupId>org.springframework.boot</groupId>
-		        <artifactId>spring-boot-dependencies</artifactId>
-		        <version>2.0.5.RELEASE</version>
-		        <type>pom</type>
-		        <scope>import</scope>
-             </dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>2.0.5.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 			<!-- 指定子项目版本 -->
 			<dependency>
 				<groupId>dragonboom</groupId>
@@ -106,6 +109,4 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<groupId>com.hauxsoft</groupId>
-	<version>0.0.1</version>
 </project>

@@ -4,14 +4,17 @@
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>util-spring-static</artifactId>
+	<name>util-web-static</name>
+	<url>http://maven.apache.org</url>
+
 	<parent>
 		<groupId>dragonboom</groupId>
 		<artifactId>util-spring</artifactId>
 		<version>0.0.1</version>
 	</parent>
-	<artifactId>util-spring-static</artifactId>
-	<name>util-web-static</name>
-	<url>http://maven.apache.org</url>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -38,6 +41,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>dragonboom</groupId>
+			<artifactId>util-spring-test</artifactId>
 		</dependency>
 	</dependencies>
 	<description>提供对静态资源的通用的支持</description>

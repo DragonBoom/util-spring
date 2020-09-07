@@ -9,9 +9,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.google.common.io.CharStreams;
 
+import indi.bean.ObjectMapperUtils;
 import indi.data.SimpleUserDTO;
 import indi.exception.WrapperException;
-import indi.util.ObjectMapperUtils;
 import lombok.extern.slf4j.Slf4j;
 
 /**
