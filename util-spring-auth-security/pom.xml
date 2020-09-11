@@ -6,7 +6,7 @@
 	<artifactId>util-spring-auth-security</artifactId>
 	<name>util-web-auth</name>
 	<description>基于SpringSecurity的web权限管理模块</description>
-	<packaging>pom</packaging>
+	<!-- 必须是默认的jar，才能打包并被引用 <packaging>pom</packaging>  -->
 	
 	<parent>
 		<groupId>dragonboom</groupId>
