@@ -11,10 +11,15 @@ import java.util.Optional;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.springframework.core.annotation.AliasFor;
+import org.springframework.core.env.PropertySource;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.support.DefaultPropertySourceFactory;
+import org.springframework.core.io.support.EncodedResource;
 
 import com.google.common.base.Strings;
 
 import indi.exception.WrapperException;
+import lombok.SneakyThrows;
 
 public class SpringUtils {
 
@@ -26,7 +31,6 @@ public class SpringUtils {
     public static final <T> T getBean(String beanName) {
 		return (T) ApplicationContextAwareHelper.getContext().getBean(beanName);
 	}
-	
 	
     /**
      * 格式化注解。根据Spring的一些机制更新注解。
@@ -80,4 +84,18 @@ public class SpringUtils {
         }
 	}
 	
+    /**
+     * 根据给定的配置文件的路径，获得PropertySource（配置项源，可用于读取配置项）
+     * 
+     * @param classPathResourcePath
+     * @return
+     * @since 2022-10-14
+     */
+    @SneakyThrows
+    public static final PropertySource<?> getPropertySource(String classPathResourcePath) {
+        DefaultPropertySourceFactory factory = new DefaultPropertySourceFactory();
+        PropertySource<?> propertySource = factory.createPropertySource(null,
+                new EncodedResource(new ClassPathResource(classPathResourcePath)));
+        return propertySource;
+    }
 }
